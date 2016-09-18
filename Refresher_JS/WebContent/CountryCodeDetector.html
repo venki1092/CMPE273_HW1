@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Country code Detector</title>
+</head>
+<body>
+Please select country <select id="country" name="country" onchange="fetchCountryCode();">
+  <script>
+  var country = ["India","USA","Afghanistan","Russia", "Pakistan", "Cambodia", "Cameron", "Canada","Colombia","Ecuador","Egypt","Fiji", "Finland","Georgia","Germany"];
+  var codes = ["+91","+1","+93","+7","+92","+855","+1","+237","+57","+593","+20","+679","+358","+995","+49"];
+  for(var i = 0; i < country.length; i++){
+	  document.write('<option value="'+i+'">'+country[i]+'</option>');
+  }
+  function fetchCountryCode()
+  {
+	  alert("country code is ");
+	  var country = document.getElementById("country");
+	  var index = country.selectedIndex;
+	  //alert(index);
+	  alert("country code is "+codes[index]);
+  }
+  </script>
+</select>
+</body>
+</html>

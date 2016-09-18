@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Temperature Coverter</title>
+<script>
+function convertTemperature()
+{
+	var from = document.getElementById("from");
+	var to = document.getElementById("to");
+	var fromIndex = from.selectedIndex;
+	var toIndex = to.selectedIndex;
+	var temperature = parseInt(document.getElementById("temperature").value,10);
+	var newTemp = 0
+	if(fromIndex == toIndex )
+	{
+		document.getElementById("result").innerHTML = " The units are same";
+	}
+	else if(fromIndex == 0 && toIndex == 1)
+	{
+		 newTemp = temperature * (9/5) + 32;
+		 document.getElementById("result").innerHTML = " The new temperature is "+ newTemp + " C";
+	}
+	else if(fromIndex == 0 && toIndex == 2)
+	{
+		newTemp = temperature * (9/5) + 32;
+		newTemp = newTemp + 273.16;
+		document.getElementById("result").innerHTML = " The new temperature is "+ newTemp + " K";
+	}
+	else if(fromIndex == 1 && toIndex == 0)
+	{
+		newTemp = (temperature - 32)* (5/9);
+	    document.getElementById("result").innerHTML = " The new temperature is "+ newTemp + " F";
+	}
+	else if(fromIndex == 1 && toIndex == 2)
+	{
+		newTemp = 	temperature + 273.15;
+		document.getElementById("result").innerHTML = " The new temperature is "+ newTemp + " K";
+	}
+	else if(fromIndex == 2 && toIndex == 0)
+	{
+		document.getElementById("result").innerHTML = " The units are same";
+	}
+	else if(fromIndex == 2 && toIndex == 1)
+	{
+		newTemp = 	temperature - 273.15;
+		document.getElementById("result").innerHTML = " The new temperature is "+ newTemp + " C";
+	}
+}
+</script>
+</head>
+
+<body>
+Temperature:<input type="text" id = "temperature" name="temperature"><br>
+From: 	    <select id = "from">
+  <option value="C">Celcius</option>
+  <option value="F">Farenheit</option>
+  <option value="K">Kelvin</option>
+</select> <br>
+To:	        <select id = "to">
+  <option value="C">Celcius</option>
+  <option value="F">Farenheit</option>
+  <option value="K">Kelvin</option>
+</select>
+<input id="clickMe" type="button" value="convert !!!" onclick="convertTemperature();" />
+<p id = "result"></p>
+</body>
+</html>

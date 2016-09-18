@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<input name = "url" id = "url" /><p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<h3>Links you have visited recently</h3>
+<div id="result"></div>
+<a href="" id = "link1"></a><br>
+<a href="" id = "link2"></a><br>
+<a href="" id = "link3"></a><br>
+<a href="" id = "link4"></a><br>
+<script type="text/javascript">
+
+document.getElementById("link1").innerHTML =localStorage.url1
+document.getElementById("link1").href =localStorage.url1
+document.getElementById("link2").innerHTML =localStorage.url2
+document.getElementById("link2").href =localStorage.url2
+document.getElementById("link3").innerHTML =localStorage.url3
+document.getElementById("link3").href =localStorage.url3
+document.getElementById("link4").href =localStorage.url4
+document.getElementById("link4").innerHTML =localStorage.url4
+
+function clickCounter() {
+
+	var count = localStorage.count;
+
+	if(count == null)
+		count = localStorage.count = '0';
+	var url = document.getElementById("url").value
+	//alert(url)
+	
+	if(count == '0')
+		localStorage.url1 = url
+	else if(count == '01')
+		localStorage.url2 = url
+	else if(count == '011')
+		localStorage.url3 = url
+	else if(count == '0111')
+		localStorage.url4 = url
+	else
+	{
+		localStorage.url1 = url
+		localStorage.count = 0;
+	}
+
+		
+	if(localStorage.url1 != null)
+	{
+		document.getElementById("link1").innerHTML =localStorage.url1
+		document.getElementById("link1").href =localStorage.url1
+		
+	}
+		
+	if(localStorage.url2 != null)
+	{
+		document.getElementById("link2").innerHTML =localStorage.url2
+		document.getElementById("link2").href =localStorage.url2
+	}
+	if(localStorage.url3 != null)	
+	{
+		document.getElementById("link3").innerHTML =localStorage.url3
+		document.getElementById("link3").href =localStorage.url3
+	}
+		
+	if(localStorage.url4 != null){
+		document.getElementById("link4").innerHTML =localStorage.url4
+		document.getElementById("link4").href =localStorage.url4
+	}
+		
+	localStorage.count = localStorage.count + '1'	
+	window.location = url;
+
+}
+</script>
+</body>
+</html>

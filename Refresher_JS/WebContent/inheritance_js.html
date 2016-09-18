@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var mammals = 
+{
+	areVertebrates : 'true',
+	haveHair : 'true',
+	giveBirth : 'true',
+	warmBlooded : 'true'
+}
+function Rabbit() 
+{
+	this.specialchar = ['runs fast', 'herbivorous', 'small in size'];
+}
+function Fox()
+{
+	this.specialchar = ['Is very tricky', 'has night vision', 'omnivorous'];
+}
+function Humans()
+{
+	this.specialchar = ['very intelligent', 'top of food chain', 'possess sixth sense'];
+}
+Rabbit.prototype = mammals;
+Fox.prototype = mammals;
+Humans.prototype = mammals;
+var myRabbit = new Rabbit()
+var myFox = new Fox()
+var myHuman = new Humans()
+
+function display()
+{
+	var category = document.getElementById("mammals");
+	var index = category.selectedIndex;
+	var details = 'Characteristics of';
+	if(index == 0)
+	{
+		details += ' human:\n'
+		//alert('test');
+		for(var p in myHuman) {
+		  if(p == 'specialchar'){ 
+			 for(var i = 0; i < myHuman[p].length; i++)
+			 {
+				 details += myHuman[p][i];
+			     details += '\n';
+			 }
+		  }
+		  else {
+			  details += p;
+			  details += '\n';
+		  }
+		}
+		alert(details);
+	}	
+	else if(index ==1)
+	{
+		details += ' Fox:\n'
+			//alert('test');
+		for(var p in myFox) {
+		  if(p == 'specialchar'){ 
+			 for(var i = 0; i < myFox[p].length; i++)
+			 {
+				 details += myFox[p][i];
+			     details += '\n';
+			 }
+		  }
+		  else {
+			  details += p;
+			  details += '\n';
+		  }
+		}
+		alert(details);
+	}
+	else if(index == 2)
+	{
+		details += ' Rabbit:\n'
+			//alert('test');
+		for(var p in myRabbit) {
+		  if(p == 'specialchar'){ 
+			 for(var i = 0; i < myRabbit[p].length; i++)
+			 {
+				 details += myRabbit[p][i];
+			     details += '\n';
+			 }
+		  }
+		  else {
+			  details += p;
+			  details += '\n';
+		  }
+		}
+		alert(details);	}
+}
+</script>
+</head>
+<body>
+Please select year <select id="mammals" name="year" onchange="display();">
+	<option value="Humans">'Humans'</option>
+	<option value="Fox">'Fox'</option>
+	<option value="Rabbit">'Rabbit'</option>
+</select>
+<p id="details"></p>
+</body>
+</html>

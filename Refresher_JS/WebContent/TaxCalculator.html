@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tax Calculator</title>
+</head>
+<body>
+<script>
+function calculateTax()
+{
+	var taxSlab  = {taxslate:[{category:1,tax:25},{category:2,tax:35},{category:3,tax:40}]}; 
+	var category = document.getElementById("category");
+	var index = category.options[category.selectedIndex].value;
+	//alert(category);
+	var tax = 0;
+	if(index === "1")
+	{
+		alert("Tax is "+taxSlab.taxslate[0].tax+"% of your salary" );
+	}
+	else if(index === "2")
+	{
+		alert("Tax is "+taxSlab.taxslate[1].tax+"% of your salary" );
+	}
+	else 
+	{
+		alert("Tax is "+taxSlab.taxslate[2].tax+"% of your salary" );
+	}
+}
+</script>
+Salary Range:  <select id = "category">
+  <option value="1"> Greater than 50000</option>
+  <option value="2"> Greater than 50000 and less than 100000</option>
+  <option value="3"> Greater than 100000</option>
+</select> 
+<input id="clickMe" type="button" value="Calculate Tax !!!" onclick="calculateTax();" />
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Latitude Longitude Info</title>
+<script>
+function httpGet()
+{
+	var reg = /^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}/;
+	var sLat = document.getElementById("lat").value
+	var sLong = document.getElementById("long").value
+	alert(sLat + ' ' + sLong)
+	if(reg.exec(sLat) )
+	{
+		var lat= parseFloat(sLat);
+		var long= parseFloat(sLong);
+		var theUrl = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long;
+	    alert(theUrl);
+		var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+	    xmlHttp.send( null );	
+	    document.getElementById("result").innerHTML = xmlHttp.responseText;
+	}
+	else
+	{
+		alert("enter correct value");
+	}
+}
+</script>
+</head>
+<body>
+<input name = "lat" id = "lat" />
+<input name = "long" id = "long" />
+<input name = "click" id = "click" value = "go" type = "button" onclick = "httpGet();" />
+<p id = "result"></p>
+</body>
+</html>

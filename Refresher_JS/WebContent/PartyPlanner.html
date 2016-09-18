@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Party Planner</title>
+<script>
+function calculatePrice()
+{
+	var price = {Pizza:15 , Cake:15 , DJ:50 , Drinks:15 , Decorations:15, Lightings:20};
+	var cost = 0; 
+	var inputElements = document.getElementsByClassName('party');
+	for(var i=0; inputElements[i] != null; ++i){
+	      alert(i)
+	      if(inputElements[i].checked){
+	          if(i == 0)
+	        	  cost = cost + price.Pizza;
+	          else if (i == 1)
+	        	  cost = cost + price.Cake;
+	          else if (i == 2)
+	        	  cost = cost + price.DJ;
+	          else if (i == 3)
+	        	  cost = cost + price.Drinks;
+	          else if (i == 4)
+	        	  cost = cost + price.Decorations;
+	          else if (i == 5)
+	        	  cost = cost + price.Lightings;
+	           //break;
+	      }
+	}
+	alert("The total cost would be " + cost)
+}
+</script>
+</head>
+<body>
+<h2>Choose what you need for party</h2>
+<input type="checkbox" class="party" name="party" value="Pizza">Pizza<br>
+<input type="checkbox" class="party" name="party" value="Cake">Cake<br>
+<input type="checkbox" class="party" name="party" value="DJ">DJ<br>
+<input type="checkbox" class="party" name="party" value="Drinks">Drinks<br>
+<input type="checkbox" class="party" name="party" value="Decorations">Decorations<br>
+<input type="checkbox" class="party" name="party" value="Lightings">Lightings<br> 
+<input type="button" name="click" onclick="calculatePrice()" value="calculate cost!!!"> <br>
+</body>
+</html>

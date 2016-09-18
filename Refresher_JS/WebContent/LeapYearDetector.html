@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Leap year detector</title>
+</head>
+<body>
+Please select year <select id="year" name="year" onchange="calculate();">
+  <script>
+  var myDate = new Date();
+  var year = myDate.getFullYear();
+  for(var i = 1900; i < year+1; i++){
+	  document.write('<option value="'+i+'">'+i+'</option>');
+  }
+  function calculate()
+  {
+	  var category = document.getElementById("year");
+	  var year = parseInt(category.options[category.selectedIndex].value,10);
+	  if((year % 4) === 0)
+	  {
+		  document.getElementById("result").innerHTML = "Its a Leap Year";
+	  }
+	  else
+	  {
+		  document.getElementById("result").innerHTML = "Its not a Leap Year";
+	  }
+  }
+  </script>
+</select>
+<p id = "result"></p>
+</body>
+</html>

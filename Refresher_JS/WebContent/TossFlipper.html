@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Toss Flipper</title>
+</head>
+<body>
+<script>
+function onTossClick() {
+    var tossResult = Math.floor(Math.random() * 2);
+    if(tossResult === 0)
+    {
+    	document.getElementById("coinimage").src = "https://images-na.ssl-images-amazon.com/images/I/51NyMaKLydL.jpg";
+    	document.getElementById("tossresult").innerHTML = "tails";
+    }
+    else
+    {
+    	document.getElementById("coinimage").src = "http://www.marshu.com/articles/images-website/articles/presidents-on-coins/nickel-coin-head.jpg";
+    	document.getElementById("tossresult").innerHTML = "heads";	
+    }    	
+}
+</script>
+<h3>Toss Flipper!!!!</h3>
+<input id="clickMe" type="button" value="Toss it !!!" onclick="onTossClick();" />
+<br>
+<br>
+<img id = "coinimage" src = "http://www.marshu.com/articles/images-website/articles/presidents-on-coins/nickel-coin-head.jpg" alt="Smiley face" height="84" width="84"/>
+<p id="tossresult"></p>
+</body>
+</html>

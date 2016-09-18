@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Url Checker</title>
+<script>
+
+function returnStatus(req, status) {
+	  //console.log(req);
+	  if(status == 200) {
+		  document.getElementById("result").innerHTML = "The url is available";
+	    // send an event
+	  }
+	  else {
+		  document.getElementById("result").innerHTML = "The url returned status code " + status;
+	    // send a different event
+	  }
+	}
+	function ValidURL(str) {
+	  var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+	  if(!regex .test(str)) {
+	    alert("Please enter valid URL.");
+	    return false;
+	  } else {
+	    return true;
+	  }
+	}
+	function fetchStatus(address) {
+	 try{
+		 var client = new XMLHttpRequest();
+		 client.onreadystatechange = function() {
+		  // in case of network errors this might not give reliable results
+		  if(this.readyState == 4)
+		   returnStatus(this, this.status);
+		 }
+		 client.open("HEAD", address);
+		 client.send();	 
+	 }
+	 catch(err)
+	 {
+		 document.getElementById("result").innerHTML = err;
+	 }
+	 
+	}
+    function onButtonPress()
+    {
+    	//alert("test")
+    	var url = document.getElementById("url").value;
+    	if(ValidURL(url))
+    	{
+    		fetchStatus(url);	
+    	}	
+    }
+</script>
+</head>
+<body>
+<input type = "text" id = "url" width = 240>
+<input type = "button" value = "check url!!!" onclick="onButtonPress();">
+<p id="result"></p>
+</body>
+</html>	
