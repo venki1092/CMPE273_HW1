@@ -7,7 +7,7 @@ import org.junit.Test;
 public class LotteryTest {
 
 	@Test
-	public void test() {
+	public void testScenario1() {
 		Lottery l = new Lottery();
 		l.addLotteryPlayer(new LotteryPlayer(1001, "Venkatesh Ramanujam", 2008));
 		l.addLotteryPlayer(new LotteryPlayer(1002, "Venkatesh Ramanujam1", 2009));
@@ -27,7 +27,7 @@ public class LotteryTest {
 		assertNotEquals(winners[2].playerid, winners[1].playerid);
 	}
 	@Test
-	public void test1W() {
+	public void testScenario2() {
 		Lottery l = new Lottery();
 		l.addLotteryPlayer(new LotteryPlayer(1001, "Venkatesh Ramanujam", 2008));
 		l.addLotteryPlayer(new LotteryPlayer(1002, "Venkatesh Ramanujam1", 2009));

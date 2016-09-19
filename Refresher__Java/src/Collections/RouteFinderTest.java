@@ -9,7 +9,7 @@ import org.junit.Test;
 public class RouteFinderTest {
 
 	@Test
-	public void test() {
+	public void testScenario1() {
 		RouteFinder rf = new RouteFinder();
 		ArrayList<String> alResult = rf.getRoute("Trichy", "Chennai");
 		assertNotEquals(null, alResult);
@@ -18,9 +18,9 @@ public class RouteFinderTest {
 		assertEquals("chennai", alResult.get(2));	
 	}
 	@Test
-	public void test1() {
+	public void testScenario2() {
 		RouteFinder rf = new RouteFinder();
-		ArrayList<String> alResult = rf.getRoute("Nellai", "Kashmir");
+		ArrayList<String> alResult = rf.getRoute("nellai", "kashmir");
 		assertNotEquals(null, alResult);	
 		System.out.println(alResult);
 	}

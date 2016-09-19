@@ -7,7 +7,7 @@ import org.junit.Test;
 public class VisitorLogTest {
 
 	@Test
-	public void test() {
+	public void testScenario1() {
 		VisitorLog<VisitorInformation> vl = new VisitorLog<VisitorInformation>();
 		vl.addVisitor(new VisitorInformation("Venkatesh", 2001, "Casual Visit"));
 		vl.addVisitor(new VisitorInformation("Ramanujam", 2002 ,"To renew membership"));
@@ -16,7 +16,7 @@ public class VisitorLogTest {
 		assertEquals(2002,vl.getVisitor(1).id);
 	}
 	@Test
-	public void test1() {
+	public void testScenario2() {
 		VisitorLog<VisitorInformation> vl = new VisitorLog<VisitorInformation>();
 		for(int i = 0; i < 100; i++)
 			vl.addVisitor(new VisitorInformation("Venkatesh", i, "Casual Visit"));
