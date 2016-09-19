@@ -2,24 +2,24 @@
 <html>
 <body>
 
-<p id="demo">Click the button to get your position.</p>
+<p id="Intruction">Click the  button below to trace you</p>
 
-<button onclick="getLocation()">Try It</button>
+<button onclick="getTrace()">Initiate Tracing!!!</button>
 
 <div id="mapholder"></div>
 
 <script>
-var x = document.getElementById("demo");
+var x = document.getElementById("Intruction");
 
-function getLocation() {
+function getTrace() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        navigator.geolocation.getCurrentPosition(display, onError);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
-function showPosition(position) {
+function display(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
 
     var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
@@ -27,7 +27,7 @@ function showPosition(position) {
     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 
-function showError(error) {
+function onError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
             x.innerHTML = "User denied the request for Geolocation."
